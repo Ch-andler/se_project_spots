@@ -1,0 +1,9 @@
+.footer {
+  height: 136px;
+  display: flex;
+}
+.footer__copyright {
+  margin: 0;
+  margin: auto;
+  color: rgba(33, 33, 33, 0.7);
+}

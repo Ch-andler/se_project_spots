@@ -1,0 +1,31 @@
+.card__like-button {
+  background-image: url(../images/Like-Icon.png);
+  background-repeat: no-repeat;
+  background-position: center;
+  width: 23px;
+  height: 23px;
+  border: none;
+  background-color: transparent;
+  opacity: 40%;
+  padding: 0;
+}
+.card {
+  max-width: 413px;
+  height: 445px;
+}
+.card__image {
+  height: 413px;
+  width: 413px;
+  display: block;
+  border-radius: 8px;
+}
+
+.card__title {
+  margin: 0;
+}
+.card__content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 12px;
+}
