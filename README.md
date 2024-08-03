@@ -1,23 +1,15 @@
-# Project 3: Spots
+**Project Name** Project Spots
 
-### Overview  
+**Project Description** This project is the start of an interactive social media web app where users can add and remove photos, like photos of other users, and make a few minor adjustments to their profile.
 
-* Intro  
-* Figma  
-* Images  
-  
-**Intro**
-  
-This project is made so all the elements are displayed correctly on popular screen sizes. We recommend investing more time in completing this project, since it's more difficult than previous ones.  
-  
-**Figma**  
-  
-* [Link to the project on Figma](https://www.figma.com/file/BBNm2bC3lj8QQMHlnqRsga/Sprint-3-Project-%E2%80%94-Spots?type=design&node-id=2%3A60&mode=design&t=afgNFybdorZO6cQo-1)
-  
-**Images**  
-  
-The way you'll do this at work is by exporting images directly from Figma — we recommend doing that to practice more. Don't forget to optimize them [here](https://tinypng.com/), so your project loads faster. 
-  
-Good luck and have fun!
-# se_project_spots
-# se_project_spots
+**Project Technologies and Techniques** Throughout this project I utilized figma for the design, flex containers, grid containers, media queries to create the responsiveness through different page sizes
+
+**Project Pictures** Showing responsiveness at different sizes
+[Desktop Screen size](<images/Screenshot 2024-08-03 165155.png>)
+[Laptop screen size](<images/Screenshot 2024-08-03 165209.png>)
+[Tablet screen size](<images/Screenshot 2024-08-03 165219.png>)
+[Mobile screen size](<images/Screenshot 2024-08-03 165229.png>)
+
+**Link to Github Page** (https://ch-andler.github.io/se_project_spots/)
+
+**Project Video** !!Video to be added after first set of corrections!!
