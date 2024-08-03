@@ -12,3 +12,22 @@
   padding-bottom: 40px;
   border-bottom: 1px rgba(33, 33, 33, 0.4) solid;
 }
+@media screen and (max-width: 627px) {
+  .cards__list {
+    grid-template-columns: repeat(auto-fit, 288px);
+    gap: 60px;
+  }
+  .cards {
+    max-width: 288px;
+    padding-bottom: 60px;
+  }
+}
+@media screen and (min-width: 320px) {
+  .card__image {
+    padding: 2px;
+  }
+  .card__content {
+    padding-left: 2px;
+    padding-right: 2px;
+  }
+}
