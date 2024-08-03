@@ -31,3 +31,13 @@
     padding-right: 2px;
   }
 }
+@media screen and (min-width: 861px) and (max-width: 1292px) {
+  .cards {
+    width: 854px;
+  }
+}
+@media screen and (min-width: 628px) and (max-width: 860px) {
+  .cards {
+    width: 417px;
+  }
+}
