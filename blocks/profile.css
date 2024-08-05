@@ -1,7 +1,7 @@
 .profile {
   display: flex;
   margin-top: 34px;
-  max-height: 210px;
+  min-height: 190px;
   padding-bottom: 20px;
   border-bottom: 1px rgba(33, 33, 33, 0.4) solid;
 }
@@ -21,6 +21,7 @@
   font-size: 16px;
   line-height: 16px;
   font-weight: 500;
+  cursor: pointer;
 }
 .profile__post-btn:hover {
   opacity: 80%;
@@ -43,10 +44,11 @@
   display: flex;
   color: #212121;
   opacity: 70%;
+  cursor: pointer;
 }
 .profile__edit-btn:hover {
   color: #212121;
-  opacity: 100;
+  opacity: 100%;
 }
 .profile__edit-btn-icon {
   max-width: 18.48px;
@@ -56,17 +58,19 @@
   display: flex;
   flex-direction: column;
   width: 505px;
-  max-height: 190px;
+  min-height: 190px;
 }
 .profile__avatar {
   margin-right: 20px;
   border-radius: 8px;
   width: 190px;
   height: 190px;
+  object-fit: cover;
 }
 .profile__description {
   margin: 0;
   margin-bottom: auto;
+  max-width: 420px;
   text-overflow: ellipsis;
   overflow: hidden;
   display: -webkit-box;
@@ -75,6 +79,7 @@
 }
 .profile__name {
   margin: 0;
+  max-width: 420px;
   font-weight: 500;
   font-size: 32px;
   line-height: 32px;
@@ -83,67 +88,31 @@
   display: -webkit-box;
   -webkit-line-clamp: 3;
   -webkit-box-orient: vertical;
-  padding-bottom: 12px;
+  margin-bottom: 12px;
 }
-@media screen and (max-width: 627px) {
-  .profile {
-    flex-direction: column;
-    align-items: center;
-    width: 288px;
-    max-height: 274px;
-    text-align: center;
-    margin-top: 20px;
-  }
-  .profile__column {
-    width: 288px;
-  }
-  .profile__description {
-    margin-bottom: 32px;
-  }
-  .profile__avatar {
-    margin-right: 0;
-    height: 80px;
-    width: 80px;
-    padding-bottom: 12px;
-  }
-  .profile__name {
-    padding-bottom: 6px;
-  }
-  .profile__post-btn {
-    margin: 0;
-    width: 100%;
-    justify-content: center;
-    margin-top: 20px;
-  }
-  .profile__edit-btn {
-    margin: auto;
-  }
-}
-@media screen and (min-width: 861px) and (max-width: 1292px) {
+@media screen and (min-width: 861px) and (max-width: 1293px) {
   .profile {
     flex-direction: row;
-
     align-items: center;
-    width: 854px;
-    max-height: 274px;
+    max-width: 854px;
+    min-height: 190px;
     text-align: start;
     margin-top: 20px;
   }
   .profile__column {
-    width: 288px;
+    width: 100%;
   }
   .profile__description {
     margin-bottom: 32px;
   }
   .profile__avatar {
     margin-right: 0;
-    height: 125px;
-    width: 125px;
+    height: 190px;
+    width: 190px;
     padding-right: 20px;
-    padding-bottom: 12px;
   }
   .profile__name {
-    padding-bottom: 6px;
+    margin-bottom: 6px;
   }
   .profile__post-btn {
     margin: 0;
@@ -152,22 +121,19 @@
     margin-top: auto;
     margin-left: auto;
   }
-  .profile__edit-btn {
-    margin: ;
-  }
 }
-@media screen and (min-width: 628px) and (max-width: 860px) {
+@media screen and (max-width: 860px) {
   .profile {
     flex-direction: column;
-
     align-items: center;
-    width: 417px;
-    max-height: 274px;
+    max-width: 417px;
+    min-height: 274px;
     text-align: center;
     margin-top: 20px;
   }
   .profile__column {
-    width: 288px;
+    min-height: fit-content;
+    width: 100%;
   }
   .profile__description {
     margin-bottom: 32px;
@@ -179,7 +145,7 @@
     padding-bottom: 12px;
   }
   .profile__name {
-    padding-bottom: 6px;
+    margin-bottom: 6px;
   }
   .profile__post-btn {
     margin: 0;
@@ -188,6 +154,44 @@
     margin-top: 20px;
   }
   .profile__edit-btn {
-    margin: auto;
+    margin: 0;
+    margin-left: auto;
+    margin-right: auto;
   }
+  @media screen and (max-width: 627px) {
+    .profile {
+      flex-direction: column;
+      align-items: center;
+      max-width: 292px;
+      min-height: 274px;
+      text-align: center;
+      margin-top: 20px;
+    }
+    .profile__column {
+      min-height: fit-content;
+      width: 100%;
+    }
+    .profile__description {
+      margin-bottom: 32px;
+    }
+    .profile__avatar {
+      margin-right: 0;
+      height: 80px;
+      width: 80px;
+      padding-bottom: 12px;
+    }
+    .profile__name {
+      margin-bottom: 6px;
+    }
+    .profile__post-btn {
+      margin: 0;
+      width: 100%;
+      justify-content: center;
+      margin-top: 20px;
+    }
+    .profile__edit-btn {
+      margin: 0;
+      margin-left: auto;
+      margin-right: auto;
+    }
 }
