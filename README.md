@@ -12,4 +12,4 @@
 
 **Link to Github Page** (https://ch-andler.github.io/se_project_spots/)
 
-**Project Video** !!Video to be added after first set of corrections!!
+**Project Video** (https://drive.google.com/file/d/1eXnyEkDSkxayi5YZryeHlU8gNb2I6V3s/view?usp=sharing) - Sorry for audio quality in the beginning.
