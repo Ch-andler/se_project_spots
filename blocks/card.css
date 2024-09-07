@@ -16,6 +16,12 @@
 .card__like-button:hover {
   opacity: 100%;
 }
+.card__like-button_liked {
+  background-image: url(../images/State=Liked.svg);
+}
+.card__like-button_liked:hover {
+  background-image: url(../images/State=Liked-Hover.svg);
+}
 .card {
   max-width: 413px;
   min-height: 445px;
