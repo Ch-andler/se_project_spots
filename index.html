@@ -45,10 +45,15 @@
           <ul class="cards__list">
             <template id="card-template">
               <li class="card">
+                <button type="button" class="card__delete-button"></button>
                 <img src="" alt="" class="card__image" />
+
                 <div class="card__content">
                   <h2 class="card__title"></h2>
-                  <button type="button" class="card__like-button"></button>
+                  <button
+                    type="button"
+                    class="card__like-button card__like-button_liked"
+                  ></button>
                 </div>
               </li>
             </template>
@@ -116,6 +121,21 @@
             <button type="submit" class="modal__submit-btn">Save</button>
           </form>
         </div>
+      </div>
+    </div>
+    <div class="modal" id="preview-modal">
+      <div class="modal__content modal__content_type_preview">
+        <button
+          aria-label="close modal"
+          class="modal__close modal__close_type_preview"
+          type="button"
+        ></button>
+        <img
+          class="modal__image"
+          src=" https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/spots/7-photo-by-griffin-wooldridge-from-pexels.jpg"
+          alt=""
+        />
+        <p class="modal__caption">Golden Gate Bridge</p>
       </div>
     </div>
     <script defer src="./scripts/index.js"></script>
