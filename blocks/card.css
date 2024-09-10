@@ -51,6 +51,7 @@
   display: block;
   border-radius: 8px;
   object-fit: cover;
+  cursor: pointer;
 }
 
 .card__title {
@@ -97,13 +98,17 @@
     padding-right: 2px;
     align-items: center;
     min-height: 18px;
+    padding-top: 2px;
   }
   .card__like-button {
-    max-height: 18px;
-    max-width: 20px;
+    height: 19px;
+    width: 22px;
   }
   .card__title {
     font-size: 16px;
-    line-height: 16px;
+    line-height: 18px;
+  }
+  .card__delete-button {
+    left: 250px;
   }
 }
