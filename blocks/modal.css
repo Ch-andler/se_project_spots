@@ -112,6 +112,9 @@
 .modal__submit_btn_disabled {
   opacity: 50%;
 }
+.modal__submit_btn_disabled:hover {
+  cursor: auto;
+}
 .modal__input {
   padding: 16px 12px;
   font-family: Poppins, Arial, Helvetica, sans-serif;
