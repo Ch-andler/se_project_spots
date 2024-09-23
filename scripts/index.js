@@ -122,7 +122,6 @@ function handleAddCardSubmit(evt) {
   const cardElement = getCardElement(inputValues);
   cardsList.prepend(cardElement);
   evt.target.reset();
-  disableButton(cardSubmitBtn, settings);
   closeModal(cardModal);
 }
 
@@ -154,4 +153,27 @@ cardForm.addEventListener("submit", handleAddCardSubmit);
 initialCards.forEach((item) => {
   const cardElement = getCardElement(item);
   cardsList.append(cardElement);
+});
+//------------------------------
+
+window.onclick = function (event) {
+  if (event.target == cardModal) {
+    closeModal(cardModal);
+  }
+};
+document.addEventListener("keydown", (event) => {
+  if (event.key === "Escape") {
+    closeModal(cardModal);
+  }
+});
+
+window.onclick = function (event) {
+  if (event.target == editModal) {
+    closeModal(editModal);
+  }
+};
+document.addEventListener("keydown", (event) => {
+  if (event.key === "Escape") {
+    closeModal(editModal);
+  }
 });

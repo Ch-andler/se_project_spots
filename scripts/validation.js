@@ -48,10 +48,6 @@ const resetValidation = (formEl, inputList) => {
   });
 };
 
-const disableButton = (buttonElement) => {
-  buttonElement.disabled = true;
-};
-
 const setEventListeners = (formEl) => {
   const inputList = Array.from(formEl.querySelectorAll(".modal__input"));
   const buttonElement = formEl.querySelector(".modal__submit_btn");
