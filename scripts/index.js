@@ -157,6 +157,31 @@ initialCards.forEach((item) => {
 //------------------------------
 
 window.onclick = function (event) {
+  if (event.target == editModal) {
+    closeModal(editModal);
+  }
+  if (event.target == cardModal) {
+    closeModal(cardModal);
+  }
+  if (event.target == previewModal) {
+    closeModal(previewModal);
+  }
+};
+
+document.addEventListener("keydown", (event) => {
+  if (event.key === "Escape") {
+    closeModal(editModal);
+  }
+  if (event.key === "Escape") {
+    closeModal(cardModal);
+  }
+
+  if (event.key === "Escape") {
+    closeModal(previewModal);
+  }
+});
+
+/* window.onclick = function (event) {
   if (event.target == cardModal) {
     closeModal(cardModal);
   }
@@ -168,12 +193,13 @@ document.addEventListener("keydown", (event) => {
 });
 
 window.onclick = function (event) {
-  if (event.target == editModal) {
-    closeModal(editModal);
+  if (event.target == previewModal) {
+    closeModal(previewModal);
   }
 };
 document.addEventListener("keydown", (event) => {
   if (event.key === "Escape") {
-    closeModal(editModal);
+    closeModal(previewModal);
   }
 });
+ */
