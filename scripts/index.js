@@ -102,12 +102,29 @@ previewModalCloseButton.addEventListener("click", () => {
   closeModal(previewModal);
 });
 
+function handleModalOverlay(evt) {
+  if (evt.target.classList.contains("modal_opened")) {
+    closeModal(evt.target);
+  }
+}
+
+function handleModalEscape(evt) {
+  if (evt.key === "Escape") {
+    const openedModal = document.querySelector(".modal_opened");
+    closeModal(openedModal);
+  }
+}
+
 function openModal(modal) {
   modal.classList.add("modal_opened");
+  modal.addEventListener("click", handleModalOverlay);
+  document.addEventListener("keydown", handleModalEscape);
 }
 
 function closeModal(modal) {
   modal.classList.remove("modal_opened");
+  modal.removeEventListener("click", handleModalOverlay);
+  document.removeEventListener("keydown", handleModalEscape);
 }
 
 function handleEditFormSubmit(evt) {
@@ -154,52 +171,3 @@ initialCards.forEach((item) => {
   const cardElement = getCardElement(item);
   cardsList.append(cardElement);
 });
-//------------------------------
-
-window.onclick = function (event) {
-  if (event.target == editModal) {
-    closeModal(editModal);
-  }
-  if (event.target == cardModal) {
-    closeModal(cardModal);
-  }
-  if (event.target == previewModal) {
-    closeModal(previewModal);
-  }
-};
-
-document.addEventListener("keydown", (event) => {
-  if (event.key === "Escape") {
-    closeModal(editModal);
-  }
-  if (event.key === "Escape") {
-    closeModal(cardModal);
-  }
-
-  if (event.key === "Escape") {
-    closeModal(previewModal);
-  }
-});
-
-/* window.onclick = function (event) {
-  if (event.target == cardModal) {
-    closeModal(cardModal);
-  }
-};
-document.addEventListener("keydown", (event) => {
-  if (event.key === "Escape") {
-    closeModal(cardModal);
-  }
-});
-
-window.onclick = function (event) {
-  if (event.target == previewModal) {
-    closeModal(previewModal);
-  }
-};
-document.addEventListener("keydown", (event) => {
-  if (event.key === "Escape") {
-    closeModal(previewModal);
-  }
-});
- */
