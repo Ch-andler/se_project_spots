@@ -98,7 +98,7 @@
   font-size: 16px;
   line-height: 1;
 }
-.modal__submit_btn {
+.modal__submit-btn {
   width: 156px;
   padding: 18px 0;
   border-radius: 8px;
@@ -106,13 +106,13 @@
   font-size: 16px;
   color: white;
 }
-.modal__submit_btn:hover {
+.modal__submit-btn:hover {
   cursor: pointer;
 }
-.modal__submit_btn_disabled {
+.modal__submit-btn_disabled {
   opacity: 50%;
 }
-.modal__submit_btn_disabled:hover {
+.modal__submit-btn_disabled:hover {
   cursor: auto;
 }
 .modal__input {
