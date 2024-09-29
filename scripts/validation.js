@@ -7,9 +7,9 @@ const config = {
   errorClass: "modal__error",
 };
 
-const showInputError = (formEl, inputEl, errorMsg, config) => {
+const showInputError = (formEl, inputEl, config) => {
   const errorMsgEl = formEl.querySelector(`#${inputEl.id}-error`);
-  errorMsgEl.textContent = errorMsg;
+  errorMsgEl.textContent = inputEl.validationMessage;
   inputEl.classList.add(config.inputErrorClass);
 };
 
@@ -43,9 +43,10 @@ const toggleButtonState = (inputList, buttonElement, config) => {
   }
 };
 
-const resetValidation = (formEl, inputList, config) => {
-  inputList.forEach((input) => {
-    hideInputError(formEl, input, config);
+const resetValidation = (formEl, config) => {
+  const inputEls = Array.from(formEl.querySelectorAll(config.inputSelector));
+  inputEls.forEach((inputEl) => {
+    hideInputError(formEl, inputEl, config);
   });
 };
 
@@ -56,8 +57,8 @@ const setEventListeners = (formEl, config) => {
 
   inputList.forEach((inputElement) => {
     inputElement.addEventListener("input", function () {
-      checkInputValidity(formEl, inputElement);
-      toggleButtonState(inputList, buttonElement);
+      checkInputValidity(formEl, inputElement, config);
+      toggleButtonState(inputList, buttonElement, config);
     });
   });
 };
