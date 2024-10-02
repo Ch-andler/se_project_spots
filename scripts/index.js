@@ -123,6 +123,7 @@ function openModal(modal) {
 
 function closeModal(modal) {
   modal.classList.remove("modal_opened");
+
   modal.removeEventListener("click", handleModalOverlay);
   document.removeEventListener("keydown", handleModalEscape);
 }
@@ -145,10 +146,7 @@ function handleAddCardSubmit(evt) {
 profileEditButton.addEventListener("click", () => {
   editModalNameInput.value = profileName.textContent;
   editModalDescriptionInput.value = profileDescription.textContent;
-  resetValidation(editFormElement, [
-    editModalNameInput,
-    editModalDescriptionInput,
-  ]);
+  resetValidation(editFormElement, config);
   openModal(editModal);
 });
 

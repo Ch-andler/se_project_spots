@@ -50,7 +50,7 @@ const resetValidation = (formEl, config) => {
   });
 };
 
-const disableButton = (buttonEl, config) => {
+const disableButton = (buttonElement, config) => {
   buttonElement.disabled = true;
   buttonElement.classList.add(config.inactiveButtonClass);
 };
