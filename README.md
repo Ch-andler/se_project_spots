@@ -9,6 +9,7 @@
 [Laptop screen size](<images/Screenshot 2024-08-03 165209.png>)
 [Tablet screen size](<images/Screenshot 2024-08-03 165219.png>)
 [Mobile screen size](<images/Screenshot 2024-08-03 165229.png>)
+[Submit button disabled](images/image.png)
 
 **Link to Github Page** (https://ch-andler.github.io/se_project_spots/)
 

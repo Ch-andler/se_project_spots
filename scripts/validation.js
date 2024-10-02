@@ -42,6 +42,8 @@ const toggleButtonState = (inputList, buttonElement, config) => {
     buttonElement.classList.remove(config.inactiveButtonClass);
   }
 };
+//This is disabling the button when the field is empty for me. Attached Screenshot in readme.
+//Unless I am confused/missing something here.
 
 const resetValidation = (formEl, config) => {
   const inputEls = Array.from(formEl.querySelectorAll(config.inputSelector));
