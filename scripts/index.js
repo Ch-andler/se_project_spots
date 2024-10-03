@@ -123,7 +123,6 @@ function openModal(modal) {
 
 function closeModal(modal) {
   modal.classList.remove("modal_opened");
-
   modal.removeEventListener("click", handleModalOverlay);
   document.removeEventListener("keydown", handleModalEscape);
 }
@@ -134,12 +133,14 @@ function handleEditFormSubmit(evt) {
   profileDescription.textContent = editModalDescriptionInput.value;
   closeModal(editModal);
 }
+////////////////////////////////////
 function handleAddCardSubmit(evt) {
   evt.preventDefault();
   const inputValues = { name: cardNameInput.value, link: cardLinkInput.value };
   const cardElement = getCardElement(inputValues);
   cardsList.prepend(cardElement);
   evt.target.reset();
+  //disableButton(cardSubmitBtn);
   closeModal(cardModal);
 }
 
@@ -168,4 +169,11 @@ cardForm.addEventListener("submit", handleAddCardSubmit);
 initialCards.forEach((item) => {
   const cardElement = getCardElement(item);
   cardsList.append(cardElement);
+});
+
+const newPostBtn = document.querySelector("#post-btn");
+newPostBtn.addEventListener("click", () => {
+  const buttonElement = cardForm.querySelector(".modal__submit-btn");
+  buttonElement.disabled = true;
+  buttonElement.classList.add(config.inactiveButtonClass);
 });
