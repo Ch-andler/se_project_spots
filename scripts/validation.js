@@ -35,15 +35,14 @@ const hasInvalidInput = (inputList) => {
 
 const toggleButtonState = (inputList, buttonElement, config) => {
   if (hasInvalidInput(inputList)) {
-    buttonElement.disabled = true;
-    buttonElement.classList.add(config.inactiveButtonClass);
+    disableButton(buttonElement, config.inactiveButtonClass);
+    //buttonElement.disabled = true;
+    //buttonElement.classList.add(config.inactiveButtonClass);
   } else {
     buttonElement.disabled = false;
     buttonElement.classList.remove(config.inactiveButtonClass);
   }
 };
-//This is disabling the button when the field is empty for me. Attached Screenshot in readme.
-//Unless I am confused/missing something here.
 
 const resetValidation = (formEl, config) => {
   const inputEls = Array.from(formEl.querySelectorAll(config.inputSelector));
@@ -52,9 +51,9 @@ const resetValidation = (formEl, config) => {
   });
 };
 
-const disableButton = (buttonElement, config) => {
+const disableButton = (buttonElement, inactiveButtonClass) => {
   buttonElement.disabled = true;
-  buttonElement.classList.add(config.inactiveButtonClass);
+  buttonElement.classList.add(inactiveButtonClass);
 };
 
 const setEventListeners = (formEl, config) => {

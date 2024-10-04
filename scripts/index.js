@@ -140,7 +140,6 @@ function handleAddCardSubmit(evt) {
   const cardElement = getCardElement(inputValues);
   cardsList.prepend(cardElement);
   evt.target.reset();
-  //disableButton(cardSubmitBtn);
   closeModal(cardModal);
 }
 
@@ -174,6 +173,5 @@ initialCards.forEach((item) => {
 const newPostBtn = document.querySelector("#post-btn");
 newPostBtn.addEventListener("click", () => {
   const buttonElement = cardForm.querySelector(".modal__submit-btn");
-  buttonElement.disabled = true;
-  buttonElement.classList.add(config.inactiveButtonClass);
+  disableButton(buttonElement, config.inactiveButtonClass);
 });
