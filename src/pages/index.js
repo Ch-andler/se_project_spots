@@ -1,3 +1,11 @@
+import "./index.css";
+import {
+  enableValidation,
+  config,
+  resetValidation,
+  disableButton,
+} from "../scripts/validation.js";
+
 const initialCards = [
   {
     name: "Golden Gate Bridge",
@@ -175,3 +183,5 @@ newPostBtn.addEventListener("click", () => {
   const buttonElement = cardForm.querySelector(".modal__submit-btn");
   disableButton(buttonElement, config.inactiveButtonClass);
 });
+
+enableValidation(config);
