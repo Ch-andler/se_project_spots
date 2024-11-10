@@ -5,8 +5,31 @@ import {
   resetValidation,
   disableButton,
 } from "../scripts/validation.js";
+import Api from "../utils/api.js";
 
-const initialCards = [
+const api = new Api({
+  baseUrl: "https://around-api.en.tripleten-services.com/v1",
+  headers: {
+    authorization: "30ff8961-85ac-4950-ab32-fdec188893a8",
+    "Content-Type": "application/json",
+  },
+});
+//destructure the second item in the callback of the .then()
+api
+  .getAppInfo()
+
+  .then(([cards]) => {
+    cards.forEach((item) => {
+      const cardElement = getCardElement(item);
+      cardsList.append(cardElement);
+    });
+    // handle users info
+    // set the src of the avatar image
+    // set textcontent of both the text elements
+  })
+  .catch(console.error);
+
+/* const initialCards = [
   {
     name: "Golden Gate Bridge",
     link: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/spots/7-photo-by-griffin-wooldridge-from-pexels.jpg",
@@ -35,7 +58,7 @@ const initialCards = [
     name: "Mountain house",
     link: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/spots/6-photo-by-moritz-feldmann-from-pexels.jpg",
   },
-];
+]; */
 
 const profileEditButton = document.querySelector(".profile__edit-btn");
 const profileName = document.querySelector(".profile__name");
@@ -62,6 +85,11 @@ const previewModalText = previewModal.querySelector(".modal__caption");
 const previewModalCloseButton = previewModal.querySelector(
   ".modal__close-btn_type_preview"
 );
+
+const avatarModal = document.querySelector("#avatar-modal");
+const avatarForm = cardModal.querySelector(".modal__form");
+const avatarModalCloseBtn = cardModal.querySelector(".modal__close-btn");
+const avatarModalBtn = document.querySelector(".profile__post-btn");
 
 const deleteButton = document.querySelector(".card__delete-button");
 
@@ -137,9 +165,18 @@ function closeModal(modal) {
 
 function handleEditFormSubmit(evt) {
   evt.preventDefault();
-  profileName.textContent = editModalNameInput.value;
-  profileDescription.textContent = editModalDescriptionInput.value;
-  closeModal(editModal);
+  api
+    .editUserInfo({
+      name: editModalNameInput.value,
+      about: editModalDescriptionInput.value,
+    })
+    .then((data) => {
+      // TODO Use data argument instead of the input values
+      profileName.textContent = editModalNameInput.value;
+      profileDescription.textContent = editModalDescriptionInput.value;
+      closeModal(editModal);
+    })
+    .catch(console.error);
 }
 ////////////////////////////////////
 function handleAddCardSubmit(evt) {
@@ -169,14 +206,14 @@ cardModalBtn.addEventListener("click", () => {
 cardModalCloseBtn.addEventListener("click", () => {
   closeModal(cardModal);
 });
+/////////////////////////
+
+avatarModalBtn.addEventListener("click", () => {
+  openModal(avatarModal);
+});
 
 editFormElement.addEventListener("submit", handleEditFormSubmit);
 cardForm.addEventListener("submit", handleAddCardSubmit);
-
-initialCards.forEach((item) => {
-  const cardElement = getCardElement(item);
-  cardsList.append(cardElement);
-});
 
 const newPostBtn = document.querySelector("#post-btn");
 newPostBtn.addEventListener("click", () => {

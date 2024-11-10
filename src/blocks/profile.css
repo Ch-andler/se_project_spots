@@ -5,6 +5,40 @@
   padding-bottom: 20px;
   border-bottom: 1px rgba(33, 33, 33, 0.4) solid;
 }
+
+.profile__avatar-container {
+  position: relative;
+  width: 190px;
+  height: 190px;
+}
+.profile__avatar-container:hover .profile__avatar-btn {
+  visibility: visible;
+  transition-duration: 0.5s;
+  background-color: rgba(33, 33, 33, 0.5);
+  cursor: pointer;
+}
+
+.profile__avatar-btn {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  background-color: transparent;
+  color: white;
+  border-style: none;
+  border-radius: 8px;
+  padding-bottom: 12px;
+  gap: 8px;
+  visibility: hidden;
+  font-size: 16px;
+  font-weight: 500;
+}
+.profile__avatar-btn::after {
+  content: "Edit Avatar";
+}
+
 .profile__post-btn {
   margin-left: auto;
   margin-top: auto;
@@ -59,13 +93,14 @@
   flex-direction: column;
   width: 100%;
   min-height: 190px;
+  padding-left: 20px;
 }
 .profile__avatar {
-  margin-right: 20px;
-  border-radius: 8px;
+  padding: 0px;
   width: 190px;
   height: 190px;
   object-fit: cover;
+  border-radius: 8px;
 }
 .profile__description {
   margin: 0;
@@ -101,6 +136,7 @@
   }
   .profile__column {
     width: 100%;
+    padding-left: 20px;
   }
   .profile__description {
     margin-bottom: 32px;
@@ -109,7 +145,7 @@
     margin-right: 0;
     height: 190px;
     width: 190px;
-    padding-right: 20px;
+    padding-right: 0px;
   }
   .profile__name {
     margin-bottom: 6px;
@@ -131,12 +167,31 @@
     text-align: center;
     margin-top: 20px;
   }
+  .profile__avatar-btn {
+    visibility: visible;
+    background-color: rgba(33, 33, 33, 0.6);
+    top: 52px;
+    left: 52px;
+    padding: 4px;
+    width: 23.34px;
+    height: 23.34px;
+  }
+  .profile__avatar-btn::after {
+    justify-content: flex-end;
+    content: "";
+  }
   .profile__column {
     min-height: fit-content;
     width: 100%;
+    padding-left: 0px;
   }
   .profile__description {
     margin-bottom: 32px;
+  }
+  .profile__avatar-container {
+    padding: 0;
+    height: 80px;
+    width: 80px;
   }
   .profile__avatar {
     margin-right: 0;
@@ -172,11 +227,13 @@
   .profile__column {
     min-height: fit-content;
     width: 100%;
+    padding-left: 0px;
   }
   .profile__description {
     margin-bottom: 32px;
   }
   .profile__avatar {
+    justify-self: center;
     margin-right: 0;
     height: 80px;
     width: 80px;
