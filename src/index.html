@@ -158,13 +158,29 @@
       </div>
     </div>
     <div class="modal" id="preview-modal">
-      <div class="modal__content">
+      <div class="modal__content modal__content_type_preview">
         <button
           aria-label="close modal"
           class="modal__close-btn modal__close-btn_type_preview"
           type="button"
         ></button>
-        <p class="modal__caption">Edit Profile Avatar</p>
+        <img
+          class="modal__image"
+          src=" https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/spots/7-photo-by-griffin-wooldridge-from-pexels.jpg"
+          alt=""
+        />
+        <p class="modal__caption"></p>
+      </div>
+    </div>
+
+    <div class="modal" id="avatar-modal">
+      <div class="modal__container">
+        <button
+          aria-label="close modal"
+          class="modal__close-btn"
+          type="button"
+        ></button>
+        <h3 class="modal__title">Edit Profile Avatar</h3>
         <form class="modal__form" id="edit-avatar-form">
           <label for="profile-avatar-input" class="modal__label">
             Profile Picture
@@ -172,7 +188,6 @@
               id="profile-avatar-input"
               class="modal__input"
               name="avatar"
-              ;
               placeholder="Paste the link to an image"
               required
             />
