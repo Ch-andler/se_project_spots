@@ -69,7 +69,7 @@ const cardModalBtn = document.querySelector(".profile__post-btn");
 const avatarModalBtn = document.querySelector(".profile__avatar-btn");
 const cardNameInput = cardModal.querySelector("#add-card-name-input");
 const cardLinkInput = cardModal.querySelector("#add-card-link-input");
-const cardSubmitBtn = cardModal.querySelector("#button");
+const submitBtn = document.querySelector("#Button");
 const previewModal = document.querySelector("#preview-modal");
 const previewModalImageEl = previewModal.querySelector(".modal__image");
 const previewModalText = previewModal.querySelector(".modal__caption");
@@ -83,7 +83,11 @@ const avatarModalCloseBtn = avatarModal.querySelector(".modal__close-btn");
 const avatarSubmitBtn = avatarModal.querySelector(".modal__submit-btn");
 const avatarInput = avatarModal.querySelector("#profile-avatar-input");
 
+//Delete Form elements
 const deleteButton = document.querySelector(".card__delete-button");
+const deleteModal = document.querySelector("#delete-modal");
+const deleteModalCloseBtn = document.querySelector("#delete-close");
+const deleteModalCancelBtn = document.querySelector("#cancel-button");
 
 const cardTemplate = document.querySelector("#card-template");
 const cardsList = document.querySelector(".cards__list");
@@ -111,6 +115,10 @@ api
   })
   .catch(console.error);
 
+function handleDeleteCard(evt) {
+  openModal(deleteModal);
+}
+
 function getCardElement(data) {
   const cardElement = cardTemplate.content
     .querySelector(".card")
@@ -136,7 +144,15 @@ function getCardElement(data) {
   const deleteButton = cardElement.querySelector(".card__delete-button");
 
   deleteButton.addEventListener("click", () => {
-    cardElement.remove();
+    handleDeleteCard(deleteModal);
+  });
+
+  deleteModalCloseBtn.addEventListener("click", () => {
+    closeModal(deleteModal);
+  });
+
+  deleteModalCancelBtn.addEventListener("click", () => {
+    closeModal(deleteModal);
   });
 
   cardImageEl.addEventListener("click", () => {
@@ -151,6 +167,7 @@ function getCardElement(data) {
 
 previewModalCloseButton.addEventListener("click", () => {
   closeModal(previewModal);
+  closeModal(deleteModal);
 });
 
 function handleModalOverlay(evt) {
@@ -190,7 +207,7 @@ function handleEditFormSubmit(evt) {
       profileDescription.textContent = editModalDescriptionInput.value;
       profileAvatar.src = data.avatar;
       evt.target.reset();
-      disableButton(submitButton);
+      disableButton(submitBtn);
       closeModal(editModal);
     })
     .catch(console.error);

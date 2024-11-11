@@ -159,6 +159,61 @@
   line-height: 17.6px;
 }
 
+.delete__submit-btn {
+  background-color: #ff6565;
+  color: #212121;
+  border-style: none;
+  font-size: 16px;
+  font-family: Poppins, Arial, Helvetica, sans-serif;
+  font-weight: 500;
+  width: 156px;
+}
+.delete__submit-btn:hover {
+  background-color: #ff3333;
+  color: #212121;
+  border-style: none;
+  font-size: 16px;
+  font-weight: 500px;
+  width: 156px;
+  transition: 0.5s;
+}
+.delete__container {
+  width: 100%;
+  height: 172px;
+  padding-top: 32px;
+  padding-bottom: 32px;
+  padding-left: 20px;
+  padding-right: 20px;
+  justify-content: space-between;
+}
+.delete__close-btn {
+  top: 0px;
+  right: -53px;
+  background-image: url("../images/Close-Icon.svg");
+  opacity: 1;
+}
+.modal__delete-form {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}
+.modal__cancel-btn {
+  background-color: #fff;
+  color: #212121;
+  font-size: 16px;
+  font-family: Poppins, Arial, Helvetica, sans-serif;
+  font-weight: 500;
+}
+.modal__cancel-btn:hover {
+  background-color: #212121;
+  color: #fff;
+  transition: 0.5s;
+}
+.delete__modal-title {
+  font-size: 24px;
+  display: flex;
+  justify-content: center;
+}
 @media screen and (max-width: 320px) {
   .modal__title {
     font-size: 20px;

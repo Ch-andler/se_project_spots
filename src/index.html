@@ -195,5 +195,34 @@
         </form>
       </div>
     </div>
+    <div class="modal" id="delete-modal">
+      <div class="modal__container delete__container">
+        <button
+          aria-label="close modal"
+          class="modal__close-btn delete__close-btn"
+          type="button"
+          id="delete-close"
+        ></button>
+        <h3 class="modal__title delete__modal-title">
+          Are you sure you want to delete this image?
+        </h3>
+        <form class="modal__delete-form" id="delete-form">
+          <button
+            id="Button"
+            type="submit"
+            class="modal__submit-btn delete__submit-btn"
+          >
+            Delete
+          </button>
+          <button
+            id="cancel-button"
+            type="button"
+            class="modal__submit-btn modal__cancel-btn"
+          >
+            Cancel
+          </button>
+        </form>
+      </div>
+    </div>
   </body>
 </html>
