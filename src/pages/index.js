@@ -6,6 +6,7 @@ import {
   disableButton,
 } from "../scripts/validation.js";
 import Api from "../utils/api.js";
+import avatar from "../images/avatar-min.jpg";
 
 const api = new Api({
   baseUrl: "https://around-api.en.tripleten-services.com/v1",
@@ -14,20 +15,8 @@ const api = new Api({
     "Content-Type": "application/json",
   },
 });
-//destructure the second item in the callback of the .then()
-api
-  .getAppInfo()
 
-  .then(([cards, userInfo]) => {
-    cards.forEach((item) => {
-      const cardElement = getCardElement(item);
-      cardsList.append(cardElement);
-    });
-    // handle users info
-    // set the src of the avatar image
-    // set textcontent of both the text elements
-  })
-  .catch(console.error);
+//destructure the second item in the callback of the .then()
 
 /* const initialCards = [
   {
@@ -98,6 +87,29 @@ const deleteButton = document.querySelector(".card__delete-button");
 
 const cardTemplate = document.querySelector("#card-template");
 const cardsList = document.querySelector(".cards__list");
+
+api
+  .getAppInfo()
+
+  .then(([cards, userInfo]) => {
+    console.log(cards); // Check if `cards` contains data
+    console.log(userInfo);
+    cards.forEach((item) => {
+      const cardElement = getCardElement(item);
+      console.log("Card element:", cardElement); // Verify it returns an element
+      cardsList.append(cardElement);
+    });
+    const userNameElement = document.querySelector(".profile__name");
+    const userDescriptionElement = document.querySelector(
+      ".profile__description"
+    );
+    // Set the src attributes
+    profileAvatar.src = avatar;
+    //set textContent
+    userNameElement.textContent = userInfo.name;
+    userDescriptionElement.textContent = userInfo.about;
+  })
+  .catch(console.error);
 
 function getCardElement(data) {
   const cardElement = cardTemplate.content
@@ -174,9 +186,11 @@ function handleEditFormSubmit(evt) {
       about: editModalDescriptionInput.value,
     })
     .then((data) => {
-      // TODO Use data argument instead of the input values
       profileName.textContent = editModalNameInput.value;
       profileDescription.textContent = editModalDescriptionInput.value;
+      profileAvatar.src = data.avatar;
+      evt.target.reset();
+      disableButton(submitButton);
       closeModal(editModal);
     })
     .catch(console.error);
@@ -197,7 +211,7 @@ function handleAvatarSubmit(evt) {
     .then((data) => {
       profileAvatar.src = data.avatar;
       evt.target.reset();
-      disableButton(avatarSubmitBtn, config);
+      disableButton(avatarSubmitBtn);
       closeModal(avatarModal);
     })
     .catch(console.error);
