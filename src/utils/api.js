@@ -8,7 +8,12 @@ class Api {
     //TODO call getuserinfo in this array
     return Promise.all([this.getInitialCards()]);
   }
-  //getUserInfo() {} TODO
+
+  getUserInfo() {
+    return fetch(`${this._baseUrl}/users/me`, {
+      headers: this._headers,
+    }).then(this._checkResponse);
+  }
 
   getInitialCards() {
     return fetch(`${this._baseUrl}/cards`, {
@@ -40,9 +45,7 @@ class Api {
     return fetch(`${this._baseUrl}/users/me/avatar`, {
       method: "PATCH",
       headers: this._headers,
-      body: JSON.stringify({
-        avatar,
-      }),
+      body: JSON.stringify({ avatar }),
     }).then((res) => {
       if (res.ok) {
         return res.json();

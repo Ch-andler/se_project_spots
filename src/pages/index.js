@@ -18,7 +18,7 @@ const api = new Api({
 api
   .getAppInfo()
 
-  .then(([cards]) => {
+  .then(([cards, userInfo]) => {
     cards.forEach((item) => {
       const cardElement = getCardElement(item);
       cardsList.append(cardElement);
@@ -195,7 +195,6 @@ function handleAvatarSubmit(evt) {
   api
     .editAvatarInfo(avatarInput.value)
     .then((data) => {
-      console.log(data.avatar);
       profileAvatar.src = data.avatar;
       evt.target.reset();
       disableButton(avatarSubmitBtn, config);
