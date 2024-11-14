@@ -4,6 +4,8 @@ import {
   config,
   resetValidation,
   disableButton,
+  toggleButtonState,
+  disableAvatarButton,
 } from "../scripts/validation.js";
 import Api from "../utils/api.js";
 import avatar from "../images/avatar-min.jpg";
@@ -155,26 +157,20 @@ function getCardElement(data) {
   cardNameEl.textContent = data.name;
   cardImageEl.alt = data.name;
   cardImageEl.src = data.link;
-  if (data.isLiked) {
-    cardLikeButton.classList.add("card__like-button_liked");
-  }
 
   function handleLike(evt, id) {
     const likeButton = evt.target;
-    const isLiked = likeButton.classList.contains("card__like-button_liked");
+    const isLiked = likeButton.classList.contains("card__like-button_active");
     api
       .changeLikeStatus(id, isLiked)
       .then(() => {
-        likeButton.classList.toggle("card__like-button_liked");
+        likeButton.classList.toggle("card__like-button_active");
       })
       .catch(console.error); // Log any errors
+  }
 
-    //evt.target.classList.toggle("card__like-button_active");
-    //1. check whether card is currently liked or not
-    // const isLiked = ???...
-    //2. call the changeLikeStatus method passing it the appropriate arguments
-    //3. handle the response (.then and .catch)
-    // 4. in the .then, toggle the active class
+  if (data.isLiked) {
+    cardLikeBtn.classList.add("card__like-button_active");
   }
 
   cardLikeBtn.addEventListener("click", (evt) => handleLike(evt, data._id));
@@ -212,7 +208,6 @@ function getCardElement(data) {
 
 previewModalCloseButton.addEventListener("click", () => {
   closeModal(previewModal);
-  closeModal(deleteModal);
 });
 
 function handleModalOverlay(evt) {
@@ -255,7 +250,7 @@ function handleEditFormSubmit(evt) {
       profileDescription.textContent = data.about;
       profileAvatar.src = data.avatar;
       evt.target.reset();
-      disableButton(submitBtn);
+      disableButton(submitBtn, config.inactiveButtonClass);
       closeModal(editModal);
     })
     .catch(console.error)
@@ -292,13 +287,15 @@ function handleAvatarSubmit(evt) {
     .editAvatarInfo(avatarInput.value)
     .then((data) => {
       profileAvatar.src = data.avatar;
+
       evt.target.reset();
-      disableButton(avatarSubmitBtn);
       closeModal(avatarModal);
+      console.log("Avatar submit button:", avatarSubmitButton);
     })
     .catch(console.error)
     .finally(() => {
       setButtonText(avatarSubmitButton, false, "Save", "Saving...");
+      disableButton(avatarSubmitButton, "modal__submit-btn_disabled");
     });
 }
 
@@ -340,7 +337,7 @@ cardForm.addEventListener("submit", handleAddCardSubmit);
 
 const newPostBtn = document.querySelector("#post-btn");
 newPostBtn.addEventListener("click", () => {
-  const buttonElement = cardForm.querySelector(".modal__submit-btn");
+  //const buttonElement = cardForm.querySelector(".modal__submit-btn");
   disableButton(buttonElement, config.inactiveButtonClass);
 });
 
