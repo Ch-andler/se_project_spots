@@ -50,7 +50,7 @@ class Api {
     }).then(this._checkResponse);
   }
 
-  editAvatarInfo(avatar) {
+  editAvatarInfo({ avatar }) {
     return fetch(`${this._baseUrl}/users/me/avatar`, {
       method: "PATCH",
       headers: this._headers,

@@ -176,6 +176,7 @@
     width: 23.34px;
     height: 23.34px;
   }
+
   .profile__avatar-btn::after {
     justify-content: flex-end;
     content: "";
