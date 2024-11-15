@@ -21,6 +21,12 @@ class Api {
     }).then(this._checkResponse);
   }
 
+  getUserProfile() {
+    return fetch(`${this._baseUrl}/users/me/avatar`, {
+      headers: this._headers,
+    }).then(this._checkResponse);
+  }
+
   addCard({ name, link }) {
     return fetch(`${this._baseUrl}/cards`, {
       method: "POST",

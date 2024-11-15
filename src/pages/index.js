@@ -80,7 +80,7 @@ api
       ".profile__description"
     );
     // Set the src attributes
-    profileAvatar.src = avatar;
+    profileAvatar.src = userInfo.avatar;
     //set textContent
     userNameElement.textContent = userInfo.name;
     userDescriptionElement.textContent = userInfo.about;
@@ -92,6 +92,19 @@ function handleDeleteCard(cardElement, cardId) {
   selectedCardId = cardId;
   openModal(deleteModal);
 }
+
+function loadProfileAvatar() {
+  api
+    .getUserProfile()
+    .then((data) => {
+      profileAvatar.src = avatar;
+    })
+    .catch(console.error);
+}
+
+window.onload = () => {
+  loadProfileAvatar();
+};
 
 function handleDeleteSubmit(evt) {
   evt.preventDefault();
