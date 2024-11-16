@@ -144,12 +144,12 @@ function getCardElement(data) {
       .then(() => {
         likeButton.classList.toggle("card__like-button_active");
       })
-      .catch(console.error); // Log any errors
+      .catch(console.error);
   }
 
-  if (data.isLiked) {
+  /* if (data.isLiked) {
     cardLikeBtn.classList.add("card__like-button_active");
-  }
+  } */
 
   cardLikeBtn.addEventListener("click", (evt) => handleLike(evt, data._id));
 
@@ -249,6 +249,7 @@ function handleAddCardSubmit(evt) {
       const cardElement = getCardElement(data);
       cardsList.prepend(cardElement);
       evt.target.reset();
+      disableButton(submitButton, config.inactiveButtonClass);
       closeModal(cardModal);
     })
     .catch(console.error)
@@ -314,10 +315,10 @@ deleteForm.addEventListener("submit", handleDeleteSubmit);
 editFormElement.addEventListener("submit", handleEditFormSubmit);
 cardForm.addEventListener("submit", handleAddCardSubmit);
 
-const newPostBtn = document.querySelector("#post-btn");
+/* const newPostBtn = document.querySelector("#post-btn");
 newPostBtn.addEventListener("click", () => {
   const buttonElement = cardForm.querySelector(".modal__submit-btn");
   disableButton(buttonElement, config.inactiveButtonClass);
-});
+}); */
 
 enableValidation(config);

@@ -73,7 +73,8 @@
 }
 @media screen and (max-width: 627px) {
   .card__image {
-    height: 288px;
+    height: 288x;
+    width: 100%;
   }
   .card {
     min-height: 288px;
@@ -92,7 +93,8 @@
 @media screen and (max-width: 320px) {
   .card__image {
     padding-top: 5px;
-    padding: 2px;
+    padding: 12px;
+    max-width: 288px;
   }
   .card__content {
     padding-left: 2px;
