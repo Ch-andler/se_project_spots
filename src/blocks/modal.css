@@ -338,3 +338,18 @@
     width: 100%;
   }
 }
+@media screen and (min-width: 319px) and (max-width: 626px) {
+  .modal__close-btn {
+    top: 12px;
+    right: 12px;
+    background-image: url(../images/Property-1=Variant2.svg);
+  }
+  .modal__close-btn:hover {
+    opacity: 50%;
+    transition: 0.25s;
+  }
+  .modal__close-btn_type_preview {
+    top: 40px;
+    left: 250px;
+  }
+}

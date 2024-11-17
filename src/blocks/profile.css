@@ -20,6 +20,7 @@
 
 .profile__avatar-btn {
   position: absolute;
+
   width: 100%;
   height: 100%;
   display: flex;
@@ -167,12 +168,19 @@
     text-align: center;
     margin-top: 20px;
   }
+  .profile__pencil-icon {
+    position: relative;
+    left: 3px;
+    top: 6px;
+  }
   .profile__avatar-btn {
     visibility: visible;
+    align-items: center;
+    justify-content: center;
     background-color: rgba(33, 33, 33, 0.6);
     top: 52px;
     left: 52px;
-    padding: 4px;
+    padding-right: 4px;
     width: 23.34px;
     height: 23.34px;
   }

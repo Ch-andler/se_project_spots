@@ -75,15 +75,9 @@ api
       console.log("Card element:", cardElement); // Verify it returns an element
       cardsList.append(cardElement);
     });
-    const userNameElement = document.querySelector(".profile__name");
-    const userDescriptionElement = document.querySelector(
-      ".profile__description"
-    );
-    // Set the src attributes
     profileAvatar.src = userInfo.avatar;
-    //set textContent
-    userNameElement.textContent = userInfo.name;
-    userDescriptionElement.textContent = userInfo.about;
+    profileName.textContent = userInfo.name;
+    profileDescription.textContent = userInfo.about;
   })
   .catch(console.error);
 
@@ -101,10 +95,6 @@ function loadProfileAvatar() {
     })
     .catch(console.error);
 }
-
-window.onload = () => {
-  loadProfileAvatar();
-};
 
 function handleDeleteSubmit(evt) {
   evt.preventDefault();
@@ -147,9 +137,9 @@ function getCardElement(data) {
       .catch(console.error);
   }
 
-  /* if (data.isLiked) {
+  if (data.isLiked) {
     cardLikeBtn.classList.add("card__like-button_active");
-  } */
+  }
 
   cardLikeBtn.addEventListener("click", (evt) => handleLike(evt, data._id));
 
@@ -158,10 +148,10 @@ function getCardElement(data) {
   cardImageEl.alt = data.name;
   cardImageEl.title = data.name;
 
-  cardLikeBtn.addEventListener("click", () => {
+  /*  cardLikeBtn.addEventListener("click", () => {
     cardLikeBtn.classList.toggle("card__like-button_liked");
   });
-
+ */
   deleteButton.addEventListener("click", () =>
     handleDeleteCard(cardElement, data._id)
   );
@@ -271,11 +261,14 @@ function handleAvatarSubmit(evt) {
       evt.target.reset();
       closeModal(avatarModal);
       console.log("Avatar submit button:", avatarSubmitButton);
+
+      // Disable button after successful operation
+      disableButton(avatarSubmitButton, "modal__submit-btn_disabled");
     })
     .catch(console.error)
     .finally(() => {
+      // Reset button text regardless of outcome
       setButtonText(avatarSubmitButton, false, "Save", "Saving...");
-      disableButton(avatarSubmitButton, "modal__submit-btn_disabled");
     });
 }
 
