@@ -87,14 +87,14 @@ function handleDeleteCard(cardElement, cardId) {
   openModal(deleteModal);
 }
 
-function loadProfileAvatar() {
+/* function loadProfileAvatar() {
   api
     .getUserProfile()
     .then((data) => {
       profileAvatar.src = avatar;
     })
     .catch(console.error);
-}
+} */
 
 function handleDeleteSubmit(evt) {
   evt.preventDefault();
@@ -148,21 +148,16 @@ function getCardElement(data) {
   cardImageEl.alt = data.name;
   cardImageEl.title = data.name;
 
-  /*  cardLikeBtn.addEventListener("click", () => {
-    cardLikeBtn.classList.toggle("card__like-button_liked");
-  });
- */
   deleteButton.addEventListener("click", () =>
     handleDeleteCard(cardElement, data._id)
   );
 
-  deleteModalCloseBtn.addEventListener("click", () => {
-    closeModal(deleteModal);
-  });
+  ////////////////////////////////////////////////////////////
 
-  deleteModalCancelBtn.addEventListener("click", () => {
-    closeModal(deleteModal);
-  });
+  // I'm not sure how to delete/move one of these. They both need to be there from what I see.
+  // One is for the Cancel button and the other for the "X"
+
+  /////////////////////////////////////////////////////////////
 
   cardImageEl.addEventListener("click", () => {
     openModal(previewModal);
@@ -173,6 +168,14 @@ function getCardElement(data) {
 
   return cardElement;
 }
+
+deleteModalCloseBtn.addEventListener("click", () => {
+  closeModal(deleteModal);
+});
+
+deleteModalCancelBtn.addEventListener("click", () => {
+  closeModal(deleteModal);
+});
 
 previewModalCloseButton.addEventListener("click", () => {
   closeModal(previewModal);
@@ -206,7 +209,7 @@ function closeModal(modal) {
 function handleEditFormSubmit(evt) {
   evt.preventDefault();
   const submitBtnTwo = evt.submitter;
-  setButtonText(submitBtnTwo, true, "Saving...", "Save");
+  setButtonText(submitBtnTwo, true, "Save", "Saving...");
   //submitBtnTwo.textContent = "Saving...";
   api
     .editUserInfo({
@@ -223,7 +226,7 @@ function handleEditFormSubmit(evt) {
     })
     .catch(console.error)
     .finally(() => {
-      setButtonText(submitBtnTwo, false, "Saving...", "Save");
+      setButtonText(submitBtnTwo, false, "Save", "Saving...");
     });
 }
 ////////////////////////////////////
